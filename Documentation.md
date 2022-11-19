@@ -10,7 +10,7 @@
   Jenkins needs credentials that it will use in its pipeline so that Terraform is authorised to control the resources in the infrastructure.
 
 
-  <h2>(2) Set up and configure two EC2's </h2>
+ <h2>(2) Set up and configure two EC2's </h2>
 
  - On the first EC2 install Terraform to create the architecture via terraform and on the second EC2 install Docker to containerize the Flask application.
 
@@ -26,6 +26,7 @@
 
 
   <h2>(4) Create a Dockerfile </h2>
+  
  - the docker file will contain a script of instructions that Docker will use to create a container image in order to containerize the python aplication.
 
 
@@ -43,7 +44,7 @@
 - This is where the steps on how to build, test,Deploy, Init, Plan, Apply and destroy the application's infrustructure will be defined and orchestrated.
 
 
-  <h2>(7) Possible Errors.</h2>
+<h2>(7) Possible Errors.</h2>
 
 Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json": dial unix /var/run/docker.sock: connect: permission denied
 
