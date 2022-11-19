@@ -12,29 +12,29 @@
 
   <h2>(2) Set up and configure two EC2's </h2>
 
-  - On the first EC2 install Terraform to create the architecture via terraform and on the second EC2 install Docker to containerize the Flask application.
+ - On the first EC2 install Terraform to create the architecture via terraform and on the second EC2 install Docker to containerize the Flask application.
 
 
   <h2>(3) Create a Jenkinsfile </h2>
 
-  - In this jenkinsfile all the steps on how to build, test, containerize the application, tag and push the image of the flask application to dockerhub. Also the Init,     Plan, Apply and destroy stages will be added to build the infrustructure using terraform. The build stage will install of the dependencies needed for the     application to run. The test stage test to see of a status code of <200> is received when the home page of the application. The Deploy stage downloads the python     image, creates a container using that image, tags that image and puches it to dockerhub which will be used to deploy to ECS.
+ - In this jenkinsfile all the steps on how to build, test, containerize the application, tag and push the image of the flask application to dockerhub. Also the Init,    Plan, Apply and destroy stages will be added to build the infrustructure using terraform. The build stage will install of the dependencies needed for the     application to run. The test stage test to see of a status code of <200> is received when the home page of the application. The Deploy stage downloads the python     image, creates a container using that image, tags that image and puches it to dockerhub which will be used to deploy to ECS.
   The Init stage Initializes terraform create a state file
   which records the current state of the infrustructure. The plan stage will build out and blueprint of all the resources the you intend to create with AWS. The apply  stage will actually start creating
   all the resources in AWS which was planned in the plan stage. Finally the destroy stage will delete all the recources that was created in AWS. 
 
-  - Please refer to the Jenkinsfile for the code (https://github.com/cceliuss187/Deployment.-5/blob/main/Jenkinsfile)
+ - Please refer to the Jenkinsfile for the code (https://github.com/cceliuss187/Deployment.-5/blob/main/Jenkinsfile)
 
 
   <h2>(4) Create a Dockerfile </h2>
-  - the docker file will contain a script of instructions that Docker will use to create a container image in order to containerize the python aplication.
+ - the docker file will contain a script of instructions that Docker will use to create a container image in order to containerize the python aplication.
 
 
-  - Please refer to the dockerfile for the code (https://github.com/cceliuss187/Deployment.-5/blob/main/dockerfile)
+ - Please refer to the dockerfile for the code (https://github.com/cceliuss187/Deployment.-5/blob/main/dockerfile)
 
 
   <h2>(5) Create a Role </h2>
 
-  - On the AWS web platform, navigate to the IAM section and create a role called "AmazonECSTaskExecutionRolePolicy". This role grants the permissions that are needed by the Amazon ECS container agent and AWS Fargate container agents to make AWS API calls on your behalf. After get the ARN from the role and paste it on lines 55 and 56 of main.tf within the intTerrafrom folder. The ARNs or Amazon Resource Names uniquely are used to identify AWS resources. 
+ - On the AWS web platform, navigate to the IAM section and create a role called "AmazonECSTaskExecutionRolePolicy". This role grants the permissions that are needed by the Amazon ECS container agent and AWS Fargate container agents to make AWS API calls on your behalf. After get the ARN from the role and paste it on lines 55 and 56 of main.tf within the intTerrafrom folder. The ARNs or Amazon Resource Names uniquely are used to identify AWS resources. 
 
 
 
